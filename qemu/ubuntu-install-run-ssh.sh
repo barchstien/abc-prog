@@ -12,7 +12,7 @@ qemu-img create ubuntu.img 20G
 qemu-system-x86_64 -enable-kvm -hda ubuntu.img -boot d -cdrom /path/to/ubuntu-16.04.1-server-amd64.iso -m 2G
 
 #run system without graphic, with ssh port (only) redirected to localhost
-qemu-system-x86_64 -enable-kvm -hda ubuntu.img -m 2G -redir tcp:2222::22
+qemu-system-x86_64 -enable-kvm -hda ubuntu.img -m 2G -nographic -redir tcp:2222::22
 
 #from host system, can now login with
 ssh -p 2222 user@localhost
