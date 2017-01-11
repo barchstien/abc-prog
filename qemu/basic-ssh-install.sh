@@ -20,4 +20,6 @@ qemu-system-x86_64 -enable-kvm -drive file=disk.img,format=qcow2 -m 2G -redir tc
 #from host system, can now login with
 ssh -p 2222 user@localhost
 
-
+#from guest, access client using
+ssh user@10.0.2.2
+sshfs user@10.0.2.2:/whatever/path ~/local/path
