@@ -14,7 +14,7 @@ qemu-img create -f qcow2 disk.img 20G
 qemu-system-x86_64 -enable-kvm -drive file=disk.img,format=qcow2 -m 2G -boot d -cdrom /path/to/ubuntu-16.04.1-server-amd64.iso
 
 #run system without display, with ssh port (only) redirected to localhost
-qemu-system-x86_64 -enable-kvm -drive file=disk.img,format=qcow2 -m 2G -daemonize -display none -redir tcp:2222::22
+qemu-system-x86_64 -enable-kvm -drive file=disk.img,format=qcow2 -m 2G -daemonize -display none -device e1000,netdev=user.0 -netdev user,id=user.0,hostfwd=tcp::2222-:22
 #default use 1 processor, change by adding "-smp n"
 
 #from host system, can now login with
